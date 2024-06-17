@@ -150,8 +150,9 @@ section {
 }
 
 #google-section {
-    justify-content: start;
-    height: fit-content;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
     align-items: start;
 }
 
@@ -276,6 +277,7 @@ input[type="submit"]:hover {
 .dashboard-content {
     display: flex;
     gap: 15px;
+    
 }
 
 .dashboard-card {
@@ -291,6 +293,33 @@ input[type="submit"]:hover {
 
 .dashboard-card:hover {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.charts {
+    display: flex;
+    gap: 1.5em;
+    flex-direction: column;
+    align-items: center;
+}
+
+.charts li {
+    --regular-background-radius: 3em;
+    --mobile-min-width-chart: 20em;
+    --mobile-max-width-chart: 40em;
+
+    background-color: var(--greyscale-color-white);
+    padding: 1em;
+    border-radius: var(--regular-background-radius);
+    width: 40em;
+    height: 40em;
+}
+
+.charts li h2 {
+    font-size: 2em;
+    text-align: center;
+}
+.charts li .charts-description {
+    opacity: 70%;
 }
 
 @media screen and (max-width: 30em) {
