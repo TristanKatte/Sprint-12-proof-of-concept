@@ -15,6 +15,29 @@
     --Snow: #FCF8F7;
 }
 
+/* dark-mode */
+.dark-mode {
+    background-color: var(--Xiketic);
+    color: var(--Snow);
+}
+
+.toggle-dark {
+    width: 10%;
+    padding: 0.5em;
+    text-transform: lowercase;
+    background-color: var(--Xiketic);
+    color: var(--Snow);
+    font-family: var(--body-fonts);
+    border: 2px solid var(--Sonic-silver);
+    border-radius: 5px;
+}
+
+.toggle-dark:hover {
+    background-color: var(--orange-crayola);
+    color: var(--Snow);
+    cursor: pointer;
+}
+
 /* Algemene stijling */
 * {
     margin: 0;
@@ -126,6 +149,12 @@ section {
     margin: auto;
 }
 
+#google-section {
+    justify-content: start;
+    height: fit-content;
+    align-items: start;
+}
+
 header {
     width: 100%;
     padding: 1.5em;
@@ -140,6 +169,7 @@ footer {
     background-color: var(--Snow);
     position: fixed;
     bottom: 0;
+    z-index: -1;
 }
 
 
@@ -264,6 +294,8 @@ input[type="submit"]:hover {
 }
 
 @media screen and (max-width: 30em) {
+    
+    /* Algemene stijling */
     main {
         display: flex;
         justify-content: center;
@@ -275,14 +307,88 @@ input[type="submit"]:hover {
         overflow: hidden;
         align-items: center;
         justify-content: center;
-        position: relative;
         height: 100vh;
         width: 75vw;
-        left: 0;
-        right: 0;
         margin: auto;
     }
 
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        padding: 1px;
+        background-color: var(--Xiketic);
+        color: #fff;
+        border-radius: 50px;
+        
+    }
+    
+    nav ul {
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+        
+    }
+    
+    nav li {
+        display: flex;
+        justify-items: center;
+        grid-row: 3;
+        padding: 8px 12px;
+        text-decoration: none;
+        text-align: left;
+        color: var(--Snow);
+        list-style-type: none;
+        border-right: 1px solid var(--Sonic-silver);
+    }
+    
+    nav li:last-child {
+        border: none;
+    }
+    
+    .navlink {
+        color: var(--Snow);
+        position: relative;
+        outline: none !important;
+        text-transform:capitalize;
+        transition: 0.2s;
+    }
+    
+    .navlink::after {
+        content: "";
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        transition: 0.2s;
+    }
+    
+    .navlink:hover,
+    .navlink:focus {
+        color: var(--Snow);
+    }
+    
+    .navlink:hover::after,
+    .navlink:focus::after {
+        background-color: var(--Snow);
+        width: 100%;
+    }
+    
+    nav li a {
+      padding: 3px 4px 3px 4px;
+      text-decoration: none;
+      font-size: 1em;
+      text-align: left;
+      color: var(--Snow);
+      display: block;
+      z-index: 1;
+    }
+
+    /* Einde algemene stijling mobiel*/
+
+/* login stijling mobiel*/
     .login-section {
         display: flex;
         justify-content: center;
@@ -335,6 +441,52 @@ input[type="submit"]:hover {
         -webkit-text-fill-color: transparent;
         font-size: 36px;
     }
+    /* Einde login stijling mobiel */
+
+    /* Dashboard stijling mobiel */
+.dashboard {
+	display: flex;
+    justify-content: center;
+    flex-flow: column;
+    gap: 10px;
+    height: 100vh;
+}
+
+.dashboard-header {
+    background-color: var(--Snow);
+    color: var(--Xiketic);
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-items: center;
+}
+
+.dashboard-content {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    gap: 15px;
+}
+
+.dashboard-card {
+    display: flex;
+    justify-content: center;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin: 20px;
+	padding: 20px;
+	width: 350px;
+    height: 350px;
+}
+
+.dashboard-card:hover {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
     
 
 }
