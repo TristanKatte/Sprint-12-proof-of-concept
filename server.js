@@ -31,96 +31,30 @@ app.get('/', function(request, response) {
   response.render('index');
 });
 
-  // Route for the dashboard page
-  app.get('/dashboard', async function (request, response) {
-	const [apiSessions] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-  
-	  // data active users firstsessions 
-	  dateRanges: [{ startDate: '2023-06-01',
-					 endDate: 'today',
-					 },],
-  
-	  dimensions: [{ name: 'firstSessionDate', },],
-  
-	  metrics: [{    name: 'activeUsers', },],
-  
-	});
-	
-	const [apiContinent] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-	  
-	  // data active users per continent 
-	  dateRanges: [{ startDate: '2023-06-01',
-					 endDate: 'today', },],
-  
-	  dimensions: [{ name: 'continent', },],
-  
-	  metrics: [{    name: 'activeUsers', },],
-  
-	});
-  
-	const [apiCountry] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-  
-	  // data active users per country 
-	  dateRanges: [{ startDate: '2021-06-01',
-					 endDate: 'today', },],
-  
-	  dimensions: [{ name: 'country', },],
-  
-	  metrics: [{    name: 'activeUsers', },],
-  
-	});
-  
-	const [apiCity] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-	  // data active users per city 
-  
-	  dateRanges: [{ startDate: '2023-06-01',
-					 endDate: 'today', },],
-  
-	  dimensions: [{ name: 'city', },],
-  
-	  metrics: [{   name: 'activeUsers', },],
-  
-	});
-  
-	const [apiGoogleAd] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-	  // data active users per city 
-  
-	  dateRanges: [{ startDate: '2023-06-01',
-					 endDate: 'today', },],
-  
-	  dimensions: [{ name: 'sessionGoogleAdsAdGroupId', },],
-  
-	  metrics: [{   name: 'activeUsers', },],
-  
-	});
-  
-	const [apiBrowser] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-	  // data active users per city 
-  
-	  dateRanges: [{ startDate: '2023-06-01',
-					 endDate: 'today', },],
-  
-	  dimensions: [{ name: 'browser', },],
-  
-	  metrics: [{   name: 'activeUsers', },],
-  
-	});
-  
-	response.render('dashboard', {
-	  session: apiSessions,
-	  continent : apiContinent,
-	  country : apiCountry,
-	  city : apiCity,
-	  browser: apiBrowser,
-	  googleAd: apiGoogleAd
-	});
+app.get('/dashboard', async function(request, response) {
+
+  const [apiResponse] = await analyticsDataClient.runReport({
+    property: `properties/${propertyId}`,
+    dateRanges: [
+      {
+        startDate: '2024-03-31',
+        endDate: 'today',
+      },
+    ],
+    dimensions: [
+      {
+        name: 'country',
+      },
+    ],
+    metrics: [
+      {
+        name: 'activeUsers',
+      },
+    ],
   });
+
+  response.render('dashboard', {data: apiResponse});
+});
 
 app.get('/google', async function(request, response) {
 	let propertyId = '301922918';
@@ -151,64 +85,76 @@ app.get('/google', async function(request, response) {
 	});
 	response.render('google', {
 		rows: res.rows,
+		googleAd: apiGoogleAd
 	})
 });
 
-app.get('/linkedin', async function (request, response) {
-	const [apiAchievement] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-  
-	  // data total users per hour 
-	  dateRanges: [{ startDate: '2024-06-01',
-					 endDate: 'today',
-					},],
-  
-	  dimensions: [{ name: 'hour', },],
-  
-	  metrics: [{    name: 'totalUsers', },], 
-  
-	});
-  
-	const [apiUsers] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-  
-	  // data total users per hour 
-	  dateRanges: [{ startDate: '2024-06-01',
-					 endDate: 'today',
-					},],
-  
-	  dimensions: [{ name: 'hour', },],
-  
-	  metrics: [{    name: 'activeUsers', },], 
-  
-	});
-  
-	const [apiNewUser] = await analyticsDataClient.runReport({
-	  property: `properties/${propertyId}`,
-  
-	  // data total users per hour 
-	  dateRanges: [{ startDate: '2024-06-01',
-					 endDate: 'today',
-					},],
-  
-	  dimensions: [{ name: 'hour', },],
-  
-	  metrics: [{    name: 'newUsers', },], 
-  
-	});
-  
-	response.render('linkedin', {
-	  achievement: apiAchievement,
-	  users: apiUsers,
-	  newuser: apiNewUser})
+const [apiGoogleAd] = await analyticsDataClient.runReport({
+    property: `properties/${propertyId}`,
+    // data active users per city 
+
+    dateRanges: [{ startDate: '2023-06-01',
+                   endDate: 'today', },],
+
+    dimensions: [{ name: 'sessionGoogleAdsAdGroupId', },],
+
+    metrics: [{   name: 'activeUsers', },],
+
+  });
+
+app.get('/linkedin', function(request, response) {
+
+  response.render('linkedin', {
+	session: apiSessions,
+    continent : apiContinent,
+    country : apiCountry
+  });
+});
+
+const [apiContinent] = await analyticsDataClient.runReport({
+    property: `properties/${propertyId}`,
+    
+    // data active users per continent 
+    dateRanges: [{ startDate: '2023-06-01',
+                   endDate: 'today', },],
+
+    dimensions: [{ name: 'continent', },],
+
+    metrics: [{    name: 'activeUsers', },],
+
+  });
+
+  const [apiCountry] = await analyticsDataClient.runReport({
+    property: `properties/${propertyId}`,
+
+    // data active users per country 
+    dateRanges: [{ startDate: '2021-06-01',
+                   endDate: 'today', },],
+
+    dimensions: [{ name: 'country', },],
+
+    metrics: [{    name: 'activeUsers', },],
+
+  });
+
+  const [apiSessions] = await analyticsDataClient.runReport({
+    property: `properties/${propertyId}`,
+
+    // data active users firstsessions 
+    dateRanges: [{ startDate: '2023-06-01',
+                   endDate: 'today',
+                   },],
+
+    dimensions: [{ name: 'firstSessionDate', },],
+
+    metrics: [{    name: 'activeUsers', },],
+
   });
 
 
 
-// app.get('/hotjar', function(request, response) {
+app.get('/hotjar', function(request, response) {
 
-//   response.render('hotjar');
-// });
+  response.render('hotjar');
+});
 
-
-  
