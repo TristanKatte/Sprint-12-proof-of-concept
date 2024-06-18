@@ -48,6 +48,7 @@
 body {
     font-family: var(--body-fonts);
     background-color: var(--Snow);
+    height: 100vh;
 }
 
 header {
@@ -133,6 +134,7 @@ nav li a {
 main {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 section {
@@ -295,31 +297,11 @@ input[type="submit"]:hover {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.charts {
-    display: flex;
-    gap: 1.5em;
-    flex-direction: column;
-    align-items: center;
-}
-
-.charts li {
-    --regular-background-radius: 3em;
-    --mobile-min-width-chart: 20em;
-    --mobile-max-width-chart: 40em;
-
-    background-color: var(--greyscale-color-white);
-    padding: 1em;
-    border-radius: var(--regular-background-radius);
-    width: 40em;
-    height: 40em;
-}
-
-.charts li h2 {
-    font-size: 2em;
-    text-align: center;
-}
-.charts li .charts-description {
-    opacity: 70%;
+.bar-container {
+    /* display: flex;
+    justify-items: center;
+    gap: 200px; */
+    z-index: 2;
 }
 
 @media screen and (max-width: 30em) {

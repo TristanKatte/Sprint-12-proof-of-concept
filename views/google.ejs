@@ -7,33 +7,11 @@
 
 <main>
 <section id="google-section">
-  <a class="return-button" href="/dashboard">
-    Terug naar dashboard
-  </a>   
-
+  
   <h1>Google Analytics</h1>
 
-  <%# rows.forEach(function(row) { %>
-    <p><%#= row.dimensionValues[0].value %>: <%#= row.metricValues[0].value %></p>
-  <%# }) %>
-  <ol class="charts">
-    <li>
-      <h2>Users in the last year</h2>
-      <p class="charts-description">Which users have used our site, based on their country</p>
-      <canvas id="countryChart" class="chart" width="400" height=""></canvas>
-    </li>
-    <li>
-      <h2>browser of users</h2>
-      <canvas id="browserChart" class="chart" width="400" height=""></canvas>
-    </li>
-    <li>
-      <h2>browser of users</h2>
-      <canvas id="devicesChart" class="chart" width="400" height=""></canvas>
-    </li>
-  </ol>
-
   <div>
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart" width="750" height="750"></canvas>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -42,7 +20,7 @@
     const ctx = document.getElementById('myChart');
   
     new Chart(ctx, {
-      type: 'bar',
+      type: 'doughnut',
       data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], 
         datasets: [{
