@@ -15,28 +15,6 @@
     --Snow: #FCF8F7;
 }
 
-/* dark-mode */
-.dark-mode {
-    background-color: var(--Xiketic);
-    color: var(--Snow);
-}
-
-.toggle-dark {
-    width: 10%;
-    padding: 0.5em;
-    text-transform: lowercase;
-    background-color: var(--Xiketic);
-    color: var(--Snow);
-    font-family: var(--body-fonts);
-    border: 2px solid var(--Sonic-silver);
-    border-radius: 5px;
-}
-
-.toggle-dark:hover {
-    background-color: var(--orange-crayola);
-    color: var(--Snow);
-    cursor: pointer;
-}
 
 /* Algemene stijling */
 * {
@@ -48,10 +26,12 @@
 body {
     font-family: var(--body-fonts);
     background-color: var(--Snow);
-    height: 100vh;
+    height: 100vh;  
 }
 
 header {
+    width: 100%;
+    padding: 1.5em;
     display: grid;
     justify-items: start;
     background-color: var(--Snow);
@@ -158,13 +138,9 @@ section {
     align-items: start;
 }
 
-header {
-    width: 100%;
-    padding: 1.5em;
-    display: grid;
-    justify-items: start;
-    background-color: var(--Snow);
-}
+
+
+
 
 footer {
     width: 100%;
@@ -197,7 +173,6 @@ form.login {
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 50%;
-
 }
 
 h2 {
@@ -221,43 +196,22 @@ input[type="email"], input[type="password"] {
     margin-bottom: 30px;
 }
 
-input[type="submit"] {
+.login-btn {
     width: 100%;
     padding: 0.5em;
-    text-transform: uppercase;
+    text-transform: lowercase;
     background-color: var(--Xiketic);
     color: var(--Snow);
     font-family: var(--body-fonts);
     border: 2px solid var(--Sonic-silver);
     border-radius: 5px;
-}
-
-input[type="submit"]:hover {
     cursor: pointer;
-    background-color: var(--Snow);
-    color: var(--Xiketic);
 }
 
-.return-button {
-    text-decoration: none;
-    border: 2px solid var(--Sonic-silver);
-    border-radius: 1.2em;
-    padding: .8em;
-    font-family: var(--body-fonts);
-    font-size: 1.1em;
-    font-weight: var(--font-large);
-}
-
-.return-button:hover {
-    background-color: var(--Xiketic);
-    color: var(--Snow);
-}
-
-.return-button:active {
+.login-btn:hover {
     background-color: var(--orange-crayola);
     color: var(--Snow);
 }
-
 
 /* Dashboard stijling */
 .dashboard {
@@ -266,6 +220,7 @@ input[type="submit"]:hover {
     flex-flow: row;
     gap: 10px;
     height: 100vh;
+    
 }
 
 .dashboard-header {
@@ -279,7 +234,6 @@ input[type="submit"]:hover {
 .dashboard-content {
     display: flex;
     gap: 15px;
-    
 }
 
 .dashboard-card {
@@ -294,15 +248,10 @@ input[type="submit"]:hover {
 }
 
 .dashboard-card:hover {
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 50px var(--Sonic-silver);
 }
 
-.bar-container {
-    /* display: flex;
-    justify-items: center;
-    gap: 200px; */
-    z-index: 2;
-}
+
 
 @media screen and (max-width: 30em) {
     
@@ -395,6 +344,18 @@ input[type="submit"]:hover {
       color: var(--Snow);
       display: block;
       z-index: 1;
+    }
+
+    .toggle-dark {
+        width: 40%;
+        padding: 0.5em;
+        text-transform: lowercase;
+        background-color: var(--Xiketic);
+        color: var(--Snow);
+        font-family: var(--body-fonts);
+        border: 2px solid var(--Sonic-silver);
+        border-radius: 5px;
+        text-align: left;
     }
 
     /* Einde algemene stijling mobiel*/
@@ -494,6 +455,10 @@ input[type="submit"]:hover {
 
 .dashboard-card:hover {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+div {
+    width: 100%;
 }
 
 

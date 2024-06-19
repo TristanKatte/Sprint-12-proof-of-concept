@@ -1,6 +1,7 @@
 console.log('Hier komt je server voor Sprint 12.')
 import express from 'express'
 import fetchJson from './helpers/fetch-json.js'
+import JSConfetti from 'js-confetti'
 
 /**
  * TODO(developer): Uncomment this variable and replace with your
