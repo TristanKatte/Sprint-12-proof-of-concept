@@ -2,6 +2,7 @@
 
 # Opdracht Fresk.digital
 <!-- Geef je project een titel en schrijf in één zin wat het is -->
+Voor deze opdracht hebben we van Fresk Digital de missie gekregen om een dashboard te maken waarin statistieken te vinden zijn uit de ```API's``` van Google, Hotjar en Linkedin. Deze statistieken gaan over de officiele website van Fresk zelf. Dit dashboard zal alleen gebruikt worden door de *_medewerkers_*.
 
 ## Inhoudsopgave
 
@@ -16,14 +17,22 @@
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
-Dit project is voor gebruikers van Fresk om data te laten zien uit de Google API, LinkedIn API en Hotjar API.
+
 
 ## Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
 
+
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
-
+Deze opdracht heeft gebruik gemaakt van de volgende talen:
+* HTML
+* CSS
+* Javascript
+* EJS
+* Nodejs
+* Express
+* Chart.js
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
 Om dit project over te nemen moet je de volgende stappen nemen:
