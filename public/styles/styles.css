@@ -26,6 +26,14 @@
     box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--body-fonts);
     background-color: var(--Snow);
@@ -156,7 +164,7 @@ section {
     right: 0;
     height: 100%;
     z-index: 200;
-    background: var(--Raisin-black);
+    background: var(--Xiketic);
     transition: var(--transition-1);
 }
 
@@ -171,7 +179,7 @@ section {
     right: 0;
     height: 100%;
     z-index: 200;
-    background: var(--Raisin-black);
+    background: var(--Xiketic);
     transition: var(--transition-1);
 }
 
@@ -184,31 +192,33 @@ section {
     margin-bottom: 2em;
 }
 
-
+/* HTML: <div class="loader"></div> */
 .loader {
-    width: 38px;
-    height: 38px;
-    border: 4px solid #FFF;
-    border-bottom-color: transparent;
+    width: 15px;
+    aspect-ratio: 1;
     border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-}
+    clip-path: inset(-45px);
+    box-shadow: -60px 15px,-60px 15px,-60px 15px;
+    color: var(--Snow);
+    transform: translateY(-15px);
+    animation: l19 1s infinite linear;
+  }
+  @keyframes l19{ 
+    16.67% {box-shadow:-60px 15px,-60px 15px,19px 15px}
+    33.33% {box-shadow:-60px 15px,  0px 15px,19px 15px}
+    40%,60%{box-shadow:-19px 15px,  0px 15px,19px 15px}
+    66.67% {box-shadow:-19px 15px,  0px 15px,60px 15px}
+    83.33% {box-shadow:-19px 15px, 60px 15px,60px 15px}
+    100%   {box-shadow: 60px 15px, 60px 15px,60px 15px}
+  }
 
-@keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-} 
+
 
 
 #google-section {
     display: flex;
     justify-content: center;
+    width: 100vh;
     height: 100vh;
     align-items: start;
 }
