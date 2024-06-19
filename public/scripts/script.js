@@ -1,3 +1,27 @@
+window.onload = () => {
+    const transitionElements = document.querySelector('.transition'),
+          anchors = document.querySelectorAll('a')
+
+    setTimeout(() => {
+        transitionElements.classList.remove('is-active')
+    }, 500)
+
+    for (let i = 0; i < anchors.length; i++) {
+        const anchor = anchors[i]
+
+        anchor.addEventListener('click', e => {
+            e.preventDefault()
+            let target = e.currentTarget.href
+
+            transitionElements.classList.add('is-active')
+
+            setTimeout(() => {
+                window.location.href = target
+            }, 500)
+        })
+    }
+}
+
 const loginBtn = document.querySelector('button');
 const requiredInputs = document.querySelectorAll('[required]');
 const emailInput = document.querySelector('[type="email"]');
@@ -23,27 +47,4 @@ function handleSubmit(event) {
     
 }
 
-window.onload = () => {
-    const transitionElements = document.querySelector('.transition'),
-          anchors = document.querySelectorAll('a')
-
-    setTimeout(() => {
-        transitionElements.classList.remove('is-active')
-    }, 500)
-
-    for (let i = 0; i < anchors.length; i++) {
-        const anchor = anchors[i]
-
-        anchor.addEventListener('click', e => {
-            e.preventDefault()
-            let target = e.currentTarget.href
-
-            transitionElements.classList.add('is-active')
-
-            setTimeout(() => {
-                window.location.href = target
-            }, 500)
-        })
-    }
-}
 

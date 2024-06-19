@@ -1,9 +1,12 @@
 <%- include('./partials/head') %>
-
+<div class="transition transition-2 is-active">
+	<img src="/img//fresk-digital-snow.png" alt="Fresk Digital Logo">
+	<span class="loader"></span>
+  </div>
 
 
 <header class="dashboard-header">
-	<!-- <h1>Dashboard</h1> -->
+	
 	<%- include('./partials/nav') %>
 </header>
 
@@ -41,11 +44,5 @@
 
 	
 </main>
-<%# console.log(data.rows) %>
 
-<%# data.rows.forEach(function(row) { %>
-
-    <p><%#= row.dimensionValues[0].value %>: <%#= row.metricValues[0].value %></p>
-
-<%#S }) %>
 <%- include('./partials/footer') %>
