@@ -17,7 +17,7 @@ window.onload = () => {
 
             setTimeout(() => {
                 window.location.href = target
-            }, 1500)
+            }, 500)
         })
     }
 }
