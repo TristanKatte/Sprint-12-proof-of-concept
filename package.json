@@ -8,8 +8,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "node --env-file=.env server.js",
-    "vercel-build": "npm install"
+    "start": "node --env-file=.env server.js"
   },
   "repository": {
     "type": "git",
