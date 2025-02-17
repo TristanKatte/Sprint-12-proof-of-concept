@@ -38,11 +38,21 @@ app.get('/hotjar', function(request, response) {
 });
 
 app.get('/linkedin', function(request, response) {
-	response.render('linkedin')
+	response.render('linkedin');
 });
 
-app.get('/hotjar', function(request, response) {
-	response.render('google')
+app.get('/google', async function(request, response) {
+  const [apiResponse] = await analyticsDataClient.runReport({
+    property: `properties/${propertyId}`,
+    dateRanges: [{ startDate: '2024-03-31', endDate: 'today' }],
+    dimensions: [{ name: 'country' }],
+    metrics: [{ name: 'activeUsers' }],
+  });
+  
+  // Structure the data with rows property
+  const googleAd = {
+    rows: apiResponse.rows || []
+  };
+  
+  response.render('google', { googleAd });
 });
-
-
