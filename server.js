@@ -35,5 +35,4 @@ app.get('/hotjar', function(request, response) {
   response.render('hotjar');
 });
 
-// Export the app for Vercel
-export default app;
+
