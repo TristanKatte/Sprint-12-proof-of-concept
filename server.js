@@ -37,4 +37,12 @@ app.get('/hotjar', function(request, response) {
   response.render('hotjar');
 });
 
+app.get('/linkedin', function(request, response) {
+	response.render('linkedin')
+});
+
+app.get('/hotjar', function(request, response) {
+	response.render('google')
+});
+
 
